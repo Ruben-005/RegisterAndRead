@@ -63,22 +63,23 @@
     </LinearLayout>
 
     <Button
-        app:backgroundTint="@null"
         android:id="@+id/btn_registrar"
         android:layout_margin="15dp"
         android:text="Registrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/boton_registrar"
-        />
-
-    <Button
         app:backgroundTint="@null"
+        android:background="@drawable/custom_button"
+
+        />
+    
+    <Button
         android:id="@+id/btn_Info"
         android:layout_margin="15dp"
         android:text="Informacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/boton_registrar"
+        app:backgroundTint="@null"
+        android:background="@drawable/custom_button"
         />
 </LinearLayout>

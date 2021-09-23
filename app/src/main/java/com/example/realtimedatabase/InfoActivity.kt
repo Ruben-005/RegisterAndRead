@@ -19,18 +19,21 @@ class InfoActivity : AppCompatActivity() {
         var myref = database.reference
         usuarios = arrayListOf()
 
+        rvUser.layoutManager = LinearLayoutManager(this)
+        val adapter  = UserAdapter(usuarios)
+        rvUser.adapter = adapter
+
         myref.child("Usuario").addValueEventListener(object :ValueEventListener{
             override fun onDataChange(datasnapshot: DataSnapshot) {
               if (datasnapshot.exists()){
-
+                usuarios.removeAll(usuarios)
                   for (snapshot in datasnapshot.children){
                         var usu = snapshot.getValue(User::class.java)
 
                         usuarios.add(usu!!)
                   }
-
+                adapter.notifyDataSetChanged()
               }
-                mostrarUsuario()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -42,9 +45,4 @@ class InfoActivity : AppCompatActivity() {
 
     }
 
-    private fun mostrarUsuario() {
-        rvUser.layoutManager = LinearLayoutManager(this)
-        val adapter  = UserAdapter(usuarios)
-        rvUser.adapter = adapter
-    }
 }
