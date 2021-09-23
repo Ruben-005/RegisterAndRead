@@ -1,22 +1,22 @@
 package com.example.realtimedatabase
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var database:DatabaseReference
-
+    lateinit var usuario:User
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        database = Firebase.database.reference.child("users")
+        database = Firebase.database.reference
         setup()
     }
 
@@ -26,15 +26,28 @@ class MainActivity : AppCompatActivity() {
             val email = emailEditText.text.toString()
             var sexo = if (masculinoCheckBox.isChecked) "masculino" else "femenino"
 
-           if (name.isNotEmpty() && email.isNotEmpty() && sexo.isNotEmpty()){
-               val user = User(name, email, sexo)
-               database.child(name).setValue(user)
-               Toast.makeText(this, "Datos ingresados correctamente", Toast.LENGTH_SHORT).show()
-           }else{
-               Toast.makeText(this, "Error al ingresar los datos intente nuevamente", Toast.LENGTH_SHORT).show()
-           }
+            SubirDatosFireBase(name, email, sexo)
+        }
+
+        btn_Info.setOnClickListener {
+            var int = Intent(this,  InfoActivity::class.java)
+
+            startActivity(int)
         }
     }
 
-    data class User(val username: String?, val email: String?, val sexo:String)
+    private fun SubirDatosFireBase(name: String, email: String, sexo: String) {
+        if (name.isNotEmpty() && email.isNotEmpty() && sexo.isNotEmpty()) {
+            val user = User(name, email, sexo)
+            database.child("Usuario").push().setValue(user)
+            Toast.makeText(this, "Datos ingresados correctamente", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(
+                this,
+                "Error al ingresar los datos intente nuevamente",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
 }

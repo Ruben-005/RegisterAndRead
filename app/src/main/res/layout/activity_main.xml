@@ -71,4 +71,14 @@
         android:layout_height="wrap_content"
         android:background="@color/boton_registrar"
         />
+
+    <Button
+        app:backgroundTint="@null"
+        android:id="@+id/btn_Info"
+        android:layout_margin="15dp"
+        android:text="Informacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/boton_registrar"
+        />
 </LinearLayout>
