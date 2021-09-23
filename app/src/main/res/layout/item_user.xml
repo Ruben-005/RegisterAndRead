@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="15dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Nombre: Ruben Alexander"/>
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Email: rubenalexandercanojimenez@gmail.com"/>
+
+    <TextView
+        android:id="@+id/tv_sexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Sexo: masculino"/>
+</LinearLayout>

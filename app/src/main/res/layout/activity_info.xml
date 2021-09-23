@@ -4,15 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".InfoActivity">
 
     <TextView
+        android:gravity="center"
         android:id="@+id/tv_texto"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="45dp"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="143dp" />
+        android:textSize="25dp"
+        android:text="Informacion del usuario"/>
+
+   <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUser"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+   <!-- <TextView
+        android:id="@+id/tv_prueva"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hola"/> -->
 </LinearLayout>
